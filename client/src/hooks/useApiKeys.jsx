@@ -1,13 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const API_KEYS = [
     {
         key: "123456789",
-        disabled: false
+        disabled: false,
+        requests: [
+            {
+                datetime: '20/03/2020',
+                size: 150
+            },
+            {
+                datetime: '21/03/2020',
+                size: 200
+            }
+        ]
     },
     {
         key: "456456456",
-        disabled: true
+        disabled: true,
+        requests: []
     },
 ]
 
@@ -21,12 +32,12 @@ const useApiKeys = () => {
 
     const createApiKey = async () => {
         //TODO create api key
-        setApiKeys([...apiKeys, { key: Math.floor(Math.random() * 1000000000).toString(), disabled: false }])
+        setApiKeys([{ key: Math.floor(Math.random() * 1000000000).toString(), disabled: false, requests: [] }, ...apiKeys])
     }
 
     const disableApiKey = async (key) => {
         //TODO disable api key
-        setApiKeys(apiKeys.map(k => k.key == key ? {...k, disabled : true} : k))
+        setApiKeys(apiKeys.map(k => k.key === key ? { ...k, disabled: true } : k))
     }
 
     return { apiKeys, createApiKey, disableApiKey }
