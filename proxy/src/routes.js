@@ -16,7 +16,7 @@ const routes = app => {
 
     app.use('/ipfs', [logRequest, requireAuthorization], createProxyMiddleware({
         target: config.IPFS.URL,
-        changeOrigin: true,
+        changeOrigin: false,
         pathRewrite: {
             [`^/ipfs`]: '/upload',
         },

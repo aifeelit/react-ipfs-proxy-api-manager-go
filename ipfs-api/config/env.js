@@ -8,11 +8,12 @@ dotenv.config({
 })
 
 export default {
-    ENVIRONMENT: process.env.ENVIRONMENT || "development",
-    PORT: process.env.API_PORT || 5000,
+    ENVIRONMENT: process.env.ENVIRONMENT,
+    PORT: process.env.API_PORT,
+    ALLOWED_ORIGIN: process.env.ALLOWED_ORIGIN,
     IPFS: {
-        PROTOCOL: process.env.IPFS_PROTOCOL || "http",
-        HOST: process.env.IPFS_HOST || "localhost",
-        PORT: process.env.IPFS_PORT || 5001
+        PROTOCOL: process.env.IPFS_PROTOCOL,
+        HOST: process.env.IPFS_HOST,
+        PORT: process.env.IPFS_PORT
     }
 }
