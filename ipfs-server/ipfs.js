@@ -1,5 +1,5 @@
 import ipfsClient from 'ipfs-http-client'
-import config from './config/index.js'
+import config from './config/env.js'
 
 const ipfsConfig = config.IPFS
 
