@@ -11,15 +11,14 @@ const routes = app => {
     app.use(morgan('combined'))
 
     app.get('/info', (_request, response, _next) => {
-        console.log(_request)
         response.send('This is a proxy service which proxies to IPFS API.')
     })
 
-    app.use('/IPFS', [logRequest, requireAuthorization], createProxyMiddleware({
+    app.use('/ipfs', [logRequest, requireAuthorization], createProxyMiddleware({
         target: config.IPFS.URL,
         changeOrigin: true,
         pathRewrite: {
-            [`^/IPFS`]: '/upload',
+            [`^/ipfs`]: '/upload',
         },
     }))
 
