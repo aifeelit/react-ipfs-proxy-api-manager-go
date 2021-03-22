@@ -16,8 +16,6 @@ export default class ApiKeysService {
         try {
             let response = await Axios.get(`${url}/${key}`)
 
-            console.log("get", response)
-
             if (response.success) {
                 return response.data.apiKey
             }
