@@ -8,7 +8,7 @@ export const requireAuthorization = async (request, response, next) => {
     const apiKey = await ApiKeyService.get(key)
 
     if (!apiKey || !ApiKeyService.isValid(apiKey)) {
-        response.status(UNAUTHORIZED).send()
+        response.sendStatus(UNAUTHORIZED)
     }
 
     const contentLength = +request.headers['content-length']    //not sure if I should log all requests even if the apikey does not exists

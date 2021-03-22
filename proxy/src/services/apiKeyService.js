@@ -8,7 +8,7 @@ export default class ApiKeysService {
         await Axios.post(`${url}/${apiKey}/requests`, { apikey: apiKey, size: contentLength })
     }
 
-    static async isValid(key) {
+    static isValid(key) {
         return !key.disabled
     }
 
