@@ -28,14 +28,15 @@ const useStyles = makeStyles(() => ({
     }
 }))
 
-const ApiKeyHeader = ({ apiKey, handleDisable }) => {
-    const { key, disabled } = apiKey
+const ApiKeyHeader = ({ apiKey, handleDisable, handleGetRequests }) => {
+    const { apikey, disabled, requests } = apiKey
     const classes = useStyles()
     return (
         <AccordionSummary classes={{ content: classes.root }}
             expandIcon={<ExpandMoreIcon />}
+            onClick={() => !requests && handleGetRequests(apikey)}
         >
-            <Typography variant="h6">Key: {key}</Typography>
+            <Typography variant="h6">Api Key: {apikey}</Typography>
             <Chip
                 label={disabled ? "Disabled" : "Enabled"}
                 className={clsx(classes.chip, disabled ? classes.disabled : classes.enabled)}
@@ -46,8 +47,8 @@ const ApiKeyHeader = ({ apiKey, handleDisable }) => {
                     className={classes.chipDisable}
                     deleteIcon={<BlockIcon />}
                     label="Disable"
-                    onClick={(e) => { handleDisable(e, key) }}
-                    onDelete={() => { }}
+                    onClick={(e) => { handleDisable(e, apikey) }}
+                    onDelete={(e) => { handleDisable(e, apikey) }}
                     variant="outlined"
                 />
             }

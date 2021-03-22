@@ -18,13 +18,13 @@ const useStyles = makeStyles(() => ({
 
 const ApiKeyBody = ({ requests }) => {
     const classes = useStyles()
-    
+
     return (
         <AccordionDetails className={classes.root}>
             <Typography variant="h6">Requests:</Typography>
             <div className={classes.requestContainer}>
                 {
-                    requests.length > 0
+                    requests && requests.length > 0
                         ?
                         requests.map((request, i) => (<Request key={`k${i}`} {...request} />))
                         :
