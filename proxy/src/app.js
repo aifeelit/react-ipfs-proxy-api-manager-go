@@ -1,6 +1,7 @@
 import express from 'express/index.js'
 import routes from './routes.js'
 import config from './config/env.js'
+import './config/axiosConfig.js'
 
 const app = express()
 routes(app)

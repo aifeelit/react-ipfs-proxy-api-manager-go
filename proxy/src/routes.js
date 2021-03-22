@@ -2,7 +2,7 @@ import morgan from 'morgan'
 import config from './config/env.js'
 import proxyMiddleware from 'http-proxy-middleware'
 import _ from 'express-async-errors'
-import { logRequest, requireAuthorization } from './middlewares/index.js'
+import { requireAuthorization } from './middlewares/index.js'
 
 const { createProxyMiddleware } = proxyMiddleware
 
@@ -14,7 +14,7 @@ const routes = app => {
         response.send('This is a proxy service which proxies to IPFS API.')
     })
 
-    app.use('/ipfs', [logRequest, requireAuthorization], createProxyMiddleware({
+    app.use('/ipfs', requireAuthorization, createProxyMiddleware({
         target: config.IPFS.URL,
         changeOrigin: false,
         pathRewrite: {

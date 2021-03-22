@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "set NODE_ENV=development&& node src/app.js"
+    "start": "set NODE_ENV=development&& node src/app.js"
   },
   "author": "",
   "license": "MIT",
