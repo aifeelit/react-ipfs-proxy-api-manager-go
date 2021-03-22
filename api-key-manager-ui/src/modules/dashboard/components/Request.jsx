@@ -11,11 +11,11 @@ const useStyles = makeStyles(() => ({
     }
 }))
 
-const Request = ({ datetime, size }) => {
+const Request = ({ date, size }) => {
     const classes = useStyles()
     return (
         <Paper variant="outlined" className={classes.root}>
-            <Typography variant="body1"><b>Date:</b> {datetime}<br /><b>Size:</b> {size} bytes</Typography>
+            <Typography variant="body1"><b>Date:</b> {date.substring(0, 10)}<br /><b>Size:</b> {size} bytes</Typography>
         </Paper>
     )
 }
