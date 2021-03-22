@@ -6,6 +6,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Typography from '@material-ui/core/Typography'
 import Chip from '@material-ui/core/Chip'
 import BlockIcon from '@material-ui/icons/Block'
+import FileCopyIcon from '@material-ui/icons/FileCopy'
+import IconButton from '@material-ui/core/IconButton'
+import Tooltip from '@material-ui/core/Tooltip'
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -41,6 +44,11 @@ const ApiKeyHeader = ({ apiKey, handleDisable, handleGetRequests }) => {
                 label={disabled ? "Disabled" : "Enabled"}
                 className={clsx(classes.chip, disabled ? classes.disabled : classes.enabled)}
             />
+            <Tooltip title="Copy to clipboard">
+                <IconButton onClick={() => { navigator.clipboard.writeText(apikey) }}>
+                    <FileCopyIcon />
+                </IconButton>
+            </Tooltip>
             {
                 !disabled &&
                 <Chip

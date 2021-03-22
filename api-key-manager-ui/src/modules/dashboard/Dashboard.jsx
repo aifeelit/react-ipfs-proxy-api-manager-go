@@ -66,7 +66,7 @@ const Dashboard = () => {
                             apiKeys.map((apiKey) => (
                                 <ApiKeyRow key={apiKey.apikey} apiKey={apiKey}>
                                     <ApiKeyHeader apiKey={apiKey} handleDisable={handleDisable} handleGetRequests={handleGetRequests} />
-                                    <ApiKeyBody requests={apiKey.requests} />
+                                    <ApiKeyBody requests={apiKey.requests} handleRefreshRequests={() => handleGetRequests(apiKey.apikey)}/>
                                 </ApiKeyRow>
                             ))
                             :
