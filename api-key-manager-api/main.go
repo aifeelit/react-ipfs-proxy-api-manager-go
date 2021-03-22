@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/chrilnth/apikeymanager/config"
 	"github.com/chrilnth/apikeymanager/routes"
+	"github.com/gofiber/cors"
 	"github.com/gofiber/fiber"
 )
 
@@ -16,6 +17,8 @@ func setupRoutes(app *fiber.App) {
 			"message": "OK",
 		})
 	})
+
+	app.Use(cors.New())
 
 	var apiRoutes = app.Group("/api/v1")
 

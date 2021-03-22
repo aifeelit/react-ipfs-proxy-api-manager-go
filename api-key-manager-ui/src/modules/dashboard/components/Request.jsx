@@ -15,7 +15,7 @@ const Request = ({ datetime, size }) => {
     const classes = useStyles()
     return (
         <Paper variant="outlined" className={classes.root}>
-            <Typography variant="body1"><b>Date:</b> {datetime}<br /><b>Size:</b> {size}mb</Typography>
+            <Typography variant="body1"><b>Date:</b> {datetime}<br /><b>Size:</b> {size} bytes</Typography>
         </Paper>
     )
 }

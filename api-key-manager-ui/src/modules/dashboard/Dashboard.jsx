@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
 
 const Dashboard = () => {
 
-    const { apiKeys, createApiKey, disableApiKey } = useApiKeys()
+    const { apiKeys, createApiKey, disableApiKey, getRequests } = useApiKeys()
     const classes = useStyles()
 
     const handleDisable = (e, key) => {
@@ -41,6 +41,10 @@ const Dashboard = () => {
 
     const handleCreate = () => {
         createApiKey()
+    }
+
+    const handleGetRequests = (apikey) => {
+        getRequests(apikey)
     }
 
     return (
@@ -60,8 +64,8 @@ const Dashboard = () => {
                         apiKeys.length > 0
                             ?
                             apiKeys.map((apiKey) => (
-                                <ApiKeyRow key={apiKey.key}>
-                                    <ApiKeyHeader apiKey={apiKey} handleDisable={handleDisable} />
+                                <ApiKeyRow key={apiKey.apikey} apiKey={apiKey}>
+                                    <ApiKeyHeader apiKey={apiKey} handleDisable={handleDisable} handleGetRequests={handleGetRequests} />
                                     <ApiKeyBody requests={apiKey.requests} />
                                 </ApiKeyRow>
                             ))
